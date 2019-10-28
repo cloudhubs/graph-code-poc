@@ -1,0 +1,7 @@
+tokenId, type, value
+1, if, , ,
+2, reference, ,
+3, sign, geq
+4, if, , 
+5, reference, ,
+6, sign, gq
