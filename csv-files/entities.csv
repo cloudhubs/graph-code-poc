@@ -1,0 +1,5 @@
+entityId, moduleId, entityName
+1, 1, Transaction
+2, 1, Terminal
+3, 2, Transaction
+4, 2, Terminal
