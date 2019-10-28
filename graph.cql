@@ -86,3 +86,18 @@ MATCH (metA:Method {methodId: methodIdA})
 MATCH (metB:Method {methodId: methodIdB})
 MERGE (metA)-[rel:NEXT{}]->(metB)
 RETURN count(rel);
+
+// NEW
+
+LOAD CSV WITH HEADERS FROM 'file:///desktop-csv-import/tokens.csv' AS row
+WITH toInteger(row.tokenId) AS tokenId, row.type AS type, row.value AS value
+MERGE (t:Token {tokenId: tokenId})
+  SET c.type = type
+  SET c.value = value
+RETURN count(c);
+
+LOAD CSV WITH HEADERS FROM 'file:///desktop-csv-import/variables.csv' AS row
+WITH toInteger(row.variableId) AS variableId, row.type AS type
+MERGE (v:Variable {variableId: variableId})
+  SET v.name = name
+RETURN count(v);
